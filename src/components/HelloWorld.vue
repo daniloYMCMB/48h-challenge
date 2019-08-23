@@ -76,7 +76,7 @@ export default {
     onMapClick(e){
       this.popup.content = "Coordenadas (" + e.latlng.lat +" " + e.latlng.lng +")",
       this.popup.content = 
-        "<ul class='borde'><li> <p>Muestras</p> <input name='muestras' placeholder='1'></li> <li><p>Radio(m)</p> <input name='radio' placeholder='10'></li></ul><div class='btns'><a href='' v-on:click='borrar'>Borrar</a><a href='' v-on:click='guardar'>Guardar</a> <p>"+e.latlng.lat+","+e.latlng.lng+"</p> </div>",
+        "<div style='display: flex; border: 1px solid gray;border-radius: 7px;padding: 10px 5px;'><ul style='margin:0; padding: 0; width: 70%;'><li style='display:flex; list-style: none; margin-bottom: 5px;'> <p style='margin:0; width: 60px;'>Muestras</p> <input style='width: 80px;' name='muestras' placeholder='1'></li> <li style='display:flex; list-style: none;'><p style='margin:0; width: 60px;'>Radio(m)</p> <input style='width: 80px;'  name='radio' placeholder='10'></li></ul><div style='display: flex;flex-direction: column;justify-content: flex-start; align-items: center;'><a style='margin-bottom: 10px;' href='' v-on:click='borrar'>Borrar</a> <a href='' v-on:click='guardar'>Guardar</a></div></div> <p>"+e.latlng.lat+","+e.latlng.lng+"</p>",
       this.markerLatLng = [e.latlng.lat,e.latlng.lng]
     }
   }
@@ -84,12 +84,18 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style>
 .column {
   margin: 1%;
   text-align: left;
 }
 .map {
   height: 80vh;
+}
+.popup {
+  border: 1px solid red;
+}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+  bottom: 35px !important;
 }
 </style>
